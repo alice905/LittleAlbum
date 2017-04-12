@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<section class="index">
+		<div class="bg">
+			<!-- 登录 -->
+			<div class="header-top">
+				<div class="login-box">
+					<a href="" calss="du-home">百度</a>
+					<span class="login-split">&nbsp</span>
+					<a href="" class="passport-login"></a>
+				</div>
+			</div>
+			<!-- logo -->
+			<h1 class='logo'>
+				<a>百度图片</a>
+				<img src="../../../img/logo.png" alt="">
+			</h1>
+			<!-- 搜索框 -->
+			<div class="inp">
+				<input type="text">
+				<div class="grom"><a></a></div>
+				<span>搜索</span>
+			</div>
+			<div class="lie">
+				<ul>
+					<li>
+						<a href="">
+							<img src="../../../img/01.jpg" alt="">
+							<span>唯美摄影</span>
+						</a>
+					</li>
+					<li>
+						<a href=""><img src="../../../img/01.jpg" alt="">
+							<span>明星</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="../../../img/01.jpg" alt="">
+							<span>壁纸</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="../../../img/01.jpg" alt="">
+							<span>动漫</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="../../../img/01.jpg" alt="">
+							<span>小清新</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img src="../../../img/01.jpg" alt="">
+							<span>人物</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript">
+       window.onresize = set;
+       set();
+       function set(){
+       	  // 视口尺寸
+       	  var w = document.documentElement.clientWidth;
+       	  // 视口是设计图的多少倍
+       	  var rate = w / 650;
+       	  // 设置字号
+       	  var zihao = rate * 20;
+       	  // 设置html的字号
+       	  document.documentElement.style.fontSize = zihao + 'px';
+       }
+	</script>
+</body>
+</html>

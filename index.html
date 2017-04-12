@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width">
+	<title>Document</title>
+	<style type="text/css">
+       html{
+       	   font-size: 20px;
+       }
+	</style>
+</head>
+<body>
+	<div id="app" style="display:none;">
+	    <!-- 首页 -->
+		<section class="index">
+			<div class="bg">
+				<!-- 登录 -->
+				<div class="header-top">
+					<div class="login-box">
+						<a href="" calss="du-home">百度</a>
+						<span class="login-split">&nbsp</span>
+						<a href="" class="passport-login"></a>
+					</div>
+				</div>
+				<!-- logo -->
+				<h1 class='logo'>
+					<a>百度图片</a>
+					<img src="img/logo.png" alt="">
+				</h1>
+				<!-- 搜索框 -->
+				<div class="inp">
+					<input type="text" >
+					<div class="grom"><a></a></div>
+					<span>搜索</span>
+				</div>
+				<div class="lie">
+					<ul>
+						<li data-liid="0">
+							<a href="">
+								<img src="img/01.jpg" data-title="唯美摄影">
+								<span>唯美摄影</span>
+							</a>
+						</li>
+						<li data-liid="1">
+							<a href="">
+								<img src="img/01.jpg" data-title="明星">
+								<span>明星</span>
+							</a>
+						</li>
+						<li data-liid="2">
+							<a href="">
+								<img src="img/01.jpg" data-title="壁纸">
+								<span>壁纸</span>
+							</a>
+						</li>
+						<li data-liid="3">
+							<a href="">
+								<img src="img/01.jpg" data-title="动漫">
+								<span>动漫</span>
+							</a>
+						</li>
+						<li data-liid="4">
+							<a href="">
+								<img src="img/01.jpg" data-title="小清新">
+								<span>小清新</span>
+							</a>
+						</li>
+						<li data-liid="5">
+							<a href="">
+								<img src="img/01.jpg" data-title="人物">
+								<span>人物</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- 列表页-->
+		<section class="list">
+			<header class="header">
+				<span class="login">***</span>
+				<a class="go-back" href="">
+					<span class="arrow"><span class="arrow green"></span></span>
+				</a>
+				<h1>百度图片网</h1>
+			</header>
+			<div class="search">
+				<input type="text" placeholder="搜素你想要的图片">
+				<span>搜一搜</span>
+			</div>
+			<ul class="type clearfix">
+				<li data-id="0">摄影</li>
+				<li data-id="1">明星</li>
+				<li data-id="2">壁纸</li>
+				<li data-id="3">宠物</li>
+				<li data-id="4">动漫</li>
+				<li data-id="5">风景</li>
+				<li data-id="6">头像</li>
+				<li data-id="7">人物</li>
+			</ul>
+			<div class="image-container">
+				<!-- 左边视图 -->
+				<div class="left-container"></div>
+				<!-- 右边视图 -->
+				<div class="right-container"></div>	
+			</div>
+			 <!-- 返回顶部 -->
+			 <span class="go-top">返回<br>顶部</span>
+	    </section>
+        <!-- 大图页 -->
+        <section class="layer"></section>
+	</div>
+	<script type="text/template" id="template">
+        <div class="layer-container" id="lun" style="<%=style%>">
+                <ul id="unit">
+                   <li class="previmg">
+                      <img src="<%=prevurl%>"/>
+                   </li>
+                   <li class="zhong">
+                      <img src="<%=url%>"/>
+                   </li>
+                   <li class="nextimg">
+                      <img src="<%=nexturl%>"/>
+                   </li>
+                </ul>      
+		     
+	    </div>
+	    <header class="header hide">
+			<div class="go-back">
+				<span class="arrow"><span class="arrow green"></span></span>
+			</div>
+			<h1><%=title%></h1>
+	    </header>
+	</script>
+	<script type="text/javascript" src="static/sea.js"></script>
+	<script type="text/javascript" src="static/lib/seajs-css.js"></script>
+	<script type="text/javascript" src="static/lib/seajs-preload.js"></script>
+	<script type="text/javascript" src="static/lib/jquery-1.12.2.js"></script>
+	<script type="text/javascript" src="static/lib/zepto.js"></script>
+	<script type="text/javascript" src="static/lib/zepto.touch.js"></script>
+	<script type="text/javascript" src="static/lib/underscore.js"></script>
+	<script type="text/javascript" src="static/lib/backbone.js"></script>
+    <script type="text/javascript">
+      window.onresize = set;
+      set();
+      function set(){
+       	  // 视口尺寸
+       	  var w = document.documentElement.clientWidth;
+       	  // 视口是设计图的多少倍
+       	  var rate = w / 650;
+       	  // 设置字号
+       	  var zihao = rate * 20;
+       	  // 设置html的字号
+       	  document.documentElement.style.fontSize = zihao + 'px';
+      }
+      // 定义配置
+      seajs.config({
+      	//简化路径书写
+      	  alias : {
+      	  	  'index' : 'modules/index/index',
+      	  	  'layer' : 'modules/layer/layer',
+      	  	  'lunbotu' : 'modules/layer/lunbotu',
+      	  	  'list' : 'modules/list/list',
+      	  	  'imgModel' : 'modules/module/img',
+      	  	  'collection' : 'modules/collection/img'
+      	  }
+      });
+      // 定义入口文件
+      seajs.use('app',function(app){
+      	  app();
+      });
+    </script>
+</body>
+</html>
